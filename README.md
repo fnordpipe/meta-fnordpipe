@@ -3,7 +3,11 @@
 ### setup the toolchain:
 
     $ git clone https://github.com/fnordpipe/meta-fnordpipe.git
-    $ bash meta-fnordpipe/env.sh <container>
+    $ bash ./env.sh <container>
+
+### update the toolchain:
+
+    $ bash ./env.sh <container>
 
 ### run the build:
 
