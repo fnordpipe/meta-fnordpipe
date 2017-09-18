@@ -8,4 +8,5 @@ BBFILES ?= ""
 BBLAYERS ?= " \
   ##OEROOT##/meta \
   ##OEROOT##/meta-fnordpipe \
+  ##OEROOT##/meta-openembedded/meta-oe \
   "
