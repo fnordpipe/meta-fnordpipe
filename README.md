@@ -1,3 +1,5 @@
+![openembedded](https://www.openembedded.org/images/logo.png "openembedded")
+
 # Setup
 
 ### setup the toolchain:
