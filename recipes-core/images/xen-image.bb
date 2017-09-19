@@ -7,4 +7,5 @@ inherit core-image
 
 IMAGE_INSTALL += " \
   packagegroup-fnordpipe-cli \
+  packagegroup-xen \
   "

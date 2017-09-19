@@ -16,6 +16,7 @@
     - build-essential
     - chrpath
     - libsdl1.2-dev
+    - xterm
 
 - name: create oe root directory
   file:
@@ -36,6 +37,7 @@
     - { repo: "git://git.openembedded.org/openembedded-core", dest: "/var/lib/oe", branch: "{{ oe.branch | default('master') }}" }
     - { repo: "git://git.openembedded.org/meta-openembedded", dest: "/var/lib/oe/meta-openembedded", branch: "{{ oe.branch | default('master') }}" }
     - { repo: "git://git.openembedded.org/bitbake", dest: "/var/lib/oe/bitbake", branch: "{{ bb.branch | default('master') }}" }
+    - { repo: "git://git.yoctoproject.org/meta-virtualization", dest: "/var/lib/oe/meta-virtualization", branch: "{{ oe.branch | default('master') }}" }
 
 - name: create symlinks
   file:
