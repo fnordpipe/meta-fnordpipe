@@ -5,10 +5,21 @@ DISTRO_FEATURES_append += " \
 
 DISTRO_FEATURES_remove = " \
   3g \
+  alsa \
   bluetooth \
   irda \
-  nfc \
+  nfs \
+  opengl \
+  pulseaudio \
   zeroconf \
-  x11 \
   wayland \
+  wifi \
+  x11 \
   "
+
+DISTRO_FEATURES_BACKFILL_CONSIDERED = " \
+  pulseaudio \
+  "
+
+VIRTUAL-RUNTIME_init_manager = "systemd"
+DISTRO_FEATURES_BACKFILL_CONSIDERED = "sysvinit"
