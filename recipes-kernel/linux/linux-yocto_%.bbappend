@@ -1,10 +1,10 @@
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
 
-SRC_URI += " \
-  file://broadcom-net.scc \
+COMPATIBLE_MACHINE_dl120g6 = "dl120g6"
+
+KMACHINE_dl120g6 = "dl120g6"
+KBRANCH_dl120g6 = "standard/base"
+
+SRC_URI_append_dl120g6 = " \
+  file://dl120g6.scc \
   "
-
-COMPATIBLE_MACHINE_amd64 = "amd64"
-
-KMACHINE_amd64 = "amd64"
-KBRANCH_amd64 = "standard/base"

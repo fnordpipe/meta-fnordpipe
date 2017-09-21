@@ -1,7 +1,7 @@
 # local.conf
 
 DISTRO ?= "fnordpipe"
-MACHINE ?= "amd64"
+MACHINE ?= "dl120g6"
 #SDKMACHINE ?= "i686"
 
 TMPDIR = "${TOPDIR}/${MACHINE}"

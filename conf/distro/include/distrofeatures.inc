@@ -1,4 +1,5 @@
 DISTRO_FEATURES_append += " \
+  aufs \
   systemd \
   xen \
   "

@@ -1,4 +1,0 @@
-define KFEATURE_DESCRIPTION "Broadcom Network Device Support"
-define KFEATURE_COMPATIBILITY arch
-
-kconf hardware broadcom-net.cfg

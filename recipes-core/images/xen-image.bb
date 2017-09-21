@@ -9,7 +9,7 @@ IMAGE_FEATURES += " \
 inherit core-image
 
 IMAGE_INSTALL += " \
-  packagegroup-core-dropbear \
+  packagegroup-core-ssh-dropbear \
   packagegroup-diskutils \
   packagegroup-fnordpipe-cli \
   packagegroup-xen \
