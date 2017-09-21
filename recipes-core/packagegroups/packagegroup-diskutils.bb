@@ -4,9 +4,10 @@ LICENSE = "MIT"
 inherit packagegroup
 
 RDEPENDS_${PN} = " \
-  mdadm \
+  cryptsetup \
   lvm2 \
   lvm2-scripts \
   lvm2-udevrules \
-  cryptsetup \
+  mdadm \
+  syslinux-extlinux \
   "

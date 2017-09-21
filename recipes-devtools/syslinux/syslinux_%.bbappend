@@ -12,7 +12,7 @@ do_deploy() {
   install -m 644 ${B}/bios/mbr/gptmbr.bin ${DEPLOYDIR}/syslinux-${PV}/gptmbr.bin
   install -m 644 ${B}/bios/core/ldlinux.sys ${DEPLOYDIR}/syslinux-${PV}/ldlinux.sys
   install -m 644 ${B}/bios/com32/elflink/ldlinux/ldlinux.c32 ${DEPLOYDIR}/syslinux-${PV}/ldlinux.c32
-  install -m 644 ${B}/bios/com32/lib/libcom32.c32 ${DEPLOYDIR}/syslinux-${PV}/libcom.c32
+  install -m 644 ${B}/bios/com32/lib/libcom32.c32 ${DEPLOYDIR}/syslinux-${PV}/libcom32.c32
   install -m 644 ${B}/bios/com32/mboot/mboot.c32 ${DEPLOYDIR}/syslinux-${PV}/mboot.c32
 
   install -m 644 ${WORKDIR}/syslinux.cfg ${DEPLOYDIR}/syslinux-${PV}/syslinux.cfg
