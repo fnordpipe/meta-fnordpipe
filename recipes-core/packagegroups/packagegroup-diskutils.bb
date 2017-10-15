@@ -10,4 +10,5 @@ RDEPENDS_${PN} = " \
   lvm2-udevrules \
   mdadm \
   syslinux-extlinux \
+  locky-core \
   "
