@@ -15,10 +15,16 @@ IMAGE_INSTALL += " \
   packagegroup-xen \
   "
 
-fstab_aufs() {
+genfstab() {
   cat >> ${IMAGE_ROOTFS}/etc/fstab << EOF
-none /etc/systemd/network aufs br=/boot/config/network:/etc/systemd/network 0 0
+LABEL=BOOT /boot ext4 defaults 0 0
+none /etc/systemd/network aufs br=/boot/config/network:/etc/systemd/network,x-systemd.requires=/boot 0 0
 EOF
 }
 
-#ROOTFS_POSTPROCESS_COMMAND += "fstab_aufs; "
+disable_services() {
+  rm -f ${IMAGE_ROOTFS}/etc/systemd/system/multi-user.target.wants/xendomains.service
+  rm -f ${IMAGE_ROOTFS}/etc/systemd/system/sockets.target.wants/dropbear.socket
+}
+
+ROOTFS_POSTPROCESS_COMMAND += "genfstab; disable_services; "
