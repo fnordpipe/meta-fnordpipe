@@ -1,0 +1,8 @@
+[Service]
+EnvironmentFile=/boot/config/locky.env
+ExecStart=/usr/bin/luksd-hook
+Restart=on-failure
+User=root
+
+[Install]
+WantedBy=multi-user.target

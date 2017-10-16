@@ -1,0 +1,8 @@
+[Service]
+EnvironmentFile=/boot/config/locky.env
+ExecStart=/usr/bin/locky '${PUBKEY}'
+Restart=on-failure
+User=locky
+
+[Install]
+WantedBy=multi-user.target

@@ -8,24 +8,6 @@ DEPENDS += " \
   cryptsetup \
   "
 
-PACKAGES = " \
-  ${PN}-core \
-  ${PN}-luksd \
-  ${PN}-dbg \
-  "
-
-FILES_${PN}-core += " \
-  ${bindir}/locky \
-  "
-
-FILES_${PN}-luksd += " \
-  ${bindir}/luksd \
-  "
-
-FILES_${PN}-dbg += " \
-  ${bindir}/.debug \
-  "
-
 RDEPENDS_locky-core += " \
   libssl \
   ${PN}-luksd \
@@ -40,10 +22,50 @@ SRC_URI[sha256sum] = "267a4e5021dd06c8b416a52ebd8b9fa5d60c8fd8f09e186fdea9af0567
 
 SRC_URI = " \
   https://github.com/esno/locky/archive/v${PV}.tar.gz \
+  file://locky.service \
+  file://luksd.service \
+  file://luksd-hook.service \
+  file://luksd-hook.sh \
   "
+
+PACKAGES = " \
+  ${PN}-core \
+  ${PN}-luksd \
+  ${PN}-dbg \
+  "
+
+FILES_${PN}-core += " \
+  ${bindir}/locky \
+  ${systemd_system_unitdir}/locky.service \
+  "
+
+FILES_${PN}-luksd += " \
+  ${bindir}/luksd \
+  ${bindir}/luksd-hook \
+  ${systemd_system_unitdir}/luksd.service \
+  ${systemd_system_unitdir}/luksd-hook.service \
+  "
+
+FILES_${PN}-dbg += " \
+  ${bindir}/.debug \
+  "
+
+SYSTEMD_SERVICE_${PN}-core = "locky.service"
+SYSTEMD_SERVICE_${PN}-luksd = "luksd.service luksd-hook.service"
+
+inherit useradd
+
+USERADD_PACKAGES = "${PN}-core"
+USERADD_PARAM_${PN}-core = "-u 942 -U -d /dev/null -r -s /bin/false locky"
 
 do_install() {
   install -d ${D}/${bindir}
   install -m 0755 ${S}/locky ${D}/${bindir}
   install -m 0755 ${S}/luksd ${D}/${bindir}
+  install -m 0755 ${WORKDIR}/luksd-hook.sh ${D}/${bindir}/luksd-hook
+
+  install -d ${D}/${systemd_system_unitdir}
+  install -m 0644 ${WORKDIR}/locky.service ${D}/${systemd_system_unitdir}
+  install -m 0644 ${WORKDIR}/luksd.service ${D}/${systemd_system_unitdir}
+  install -m 0644 ${WORKDIR}/luksd-hook.service ${D}/${systemd_system_unitdir}
 }
