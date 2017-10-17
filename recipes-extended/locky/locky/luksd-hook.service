@@ -1,3 +1,6 @@
+[Unit]
+Requires=luksd.service
+
 [Service]
 EnvironmentFile=/boot/config/locky.env
 ExecStart=/usr/bin/luksd-hook

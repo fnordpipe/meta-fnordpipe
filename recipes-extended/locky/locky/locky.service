@@ -1,3 +1,7 @@
+[Unit]
+Requires=systemd-networkd.service
+After=luksd.service
+
 [Service]
 EnvironmentFile=/boot/config/locky.env
 ExecStart=/usr/bin/locky '${PUBKEY}'

@@ -1,3 +1,6 @@
+[Unit]
+Requires=local-fs.target
+
 [Service]
 EnvironmentFile=/boot/config/locky.env
 ExecStart=/usr/bin/luksd '${LUKS_BLKDEV}' '${LUKS_NAME}' root locky

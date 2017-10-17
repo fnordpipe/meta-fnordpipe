@@ -50,10 +50,14 @@ FILES_${PN}-dbg += " \
   ${bindir}/.debug \
   "
 
-SYSTEMD_SERVICE_${PN}-core = "locky.service"
-SYSTEMD_SERVICE_${PN}-luksd = "luksd.service luksd-hook.service"
+inherit useradd systemd
 
-inherit useradd
+SYSTEMD_PACKAGES = "${PN}-core ${PN}-luksd"
+SYSTEMD_SERVICE_${PN}-core = "locky.service"
+SYSTEMD_SERVICE_${PN}-luksd = " \
+  luksd.service \
+  luksd-hook.service \
+  "
 
 USERADD_PACKAGES = "${PN}-core"
 USERADD_PARAM_${PN}-core = "-u 942 -U -d /dev/null -r -s /bin/false locky"
