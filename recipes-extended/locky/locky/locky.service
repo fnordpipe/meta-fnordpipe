@@ -3,7 +3,7 @@ Requires=systemd-networkd.service
 After=luksd.service
 
 [Service]
-EnvironmentFile=/boot/config/locky.env
+EnvironmentFile=/boot/config/hw.env
 ExecStart=/sbin/locky '${PUBKEY}'
 Restart=on-failure
 User=locky

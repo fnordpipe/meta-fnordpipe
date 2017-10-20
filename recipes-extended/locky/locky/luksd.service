@@ -2,7 +2,7 @@
 Requires=local-fs.target
 
 [Service]
-EnvironmentFile=/boot/config/locky.env
+EnvironmentFile=/boot/config/hw.env
 ExecStart=/sbin/luksd '${LUKS_BLKDEV}' '${LUKS_NAME}' root locky
 Restart=on-failure
 User=root

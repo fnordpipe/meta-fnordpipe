@@ -2,7 +2,7 @@
 Requires=luksd.service
 
 [Service]
-EnvironmentFile=/boot/config/locky.env
+EnvironmentFile=/boot/config/hw.env
 ExecStart=/sbin/luksd-hook
 Restart=on-failure
 User=root

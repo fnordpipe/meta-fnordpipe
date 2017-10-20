@@ -1,0 +1,11 @@
+[Unit]
+Requires=local-fs.service
+
+[Service]
+EnvironmentFile=/boot/config/install.env
+ExecStart=/usr/libexec/initrd-install.sh
+Restart=on-failure
+User=root
+
+[Install]
+WantedBy=multi-user.target
