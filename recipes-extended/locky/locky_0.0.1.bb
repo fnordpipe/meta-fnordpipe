@@ -9,7 +9,7 @@ DEPENDS += " \
   "
 
 RDEPENDS_locky-core += " \
-  libssl \
+  openssl \
   ${PN}-luksd \
   "
 
