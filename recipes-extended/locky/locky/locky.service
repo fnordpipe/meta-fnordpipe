@@ -4,7 +4,7 @@ After=luksd.service
 
 [Service]
 EnvironmentFile=/boot/config/locky.env
-ExecStart=/usr/bin/locky '${PUBKEY}'
+ExecStart=/sbin/locky '${PUBKEY}'
 Restart=on-failure
 User=locky
 

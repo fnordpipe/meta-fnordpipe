@@ -34,14 +34,16 @@ PACKAGES = " \
   ${PN}-dbg \
   "
 
+export exec_prefix=""
+
 FILES_${PN}-core += " \
-  ${bindir}/locky \
+  ${sbindir}/locky \
   ${systemd_system_unitdir}/locky.service \
   "
 
 FILES_${PN}-luksd += " \
-  ${bindir}/luksd \
-  ${bindir}/luksd-hook \
+  ${sbindir}/luksd \
+  ${sbindir}/luksd-hook \
   ${systemd_system_unitdir}/luksd.service \
   ${systemd_system_unitdir}/luksd-hook.service \
   "
@@ -63,10 +65,10 @@ USERADD_PACKAGES = "${PN}-core"
 USERADD_PARAM_${PN}-core = "-u 942 -U -d /dev/null -r -s /bin/false locky"
 
 do_install() {
-  install -d ${D}/${bindir}
-  install -m 0755 ${S}/locky ${D}/${bindir}
-  install -m 0755 ${S}/luksd ${D}/${bindir}
-  install -m 0755 ${WORKDIR}/luksd-hook.sh ${D}/${bindir}/luksd-hook
+  install -d ${D}/${sbindir}
+  install -m 0755 ${S}/locky ${D}/${sbindir}
+  install -m 0755 ${S}/luksd ${D}/${sbindir}
+  install -m 0755 ${WORKDIR}/luksd-hook.sh ${D}/${sbindir}/luksd-hook
 
   install -d ${D}/${systemd_system_unitdir}
   install -m 0644 ${WORKDIR}/locky.service ${D}/${systemd_system_unitdir}
