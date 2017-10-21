@@ -1,6 +1,9 @@
 SUMMARY = "xen hypervisor image"
 LICENSE = "MIT"
 
+IMAGE_CLASSES += "image_types_release"
+IMAGE_FSTYPES += " release"
+
 IMAGE_FEATURES += " \
   package-management \
   read-only-rootfs \
