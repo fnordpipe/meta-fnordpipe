@@ -68,7 +68,7 @@ IMAGE_CMD_installer() {
   dd if=${INSTALLER_WORKDIR}/boot.img of=${INSTALLER_WORKDIR}/${IMAGE_NAME}.img \
     conv=notrunc seek=1 bs=8192
 
-  dd if=${DEPLOY_DIR_IMAGE}/syslinux/gptmbr.bin of=${INSTALLER_WORKDIR}/${IMAGE_NAME}.img \
+  dd if=${DEPLOY_DIR_IMAGE}/syslinux/mbr.bin of=${INSTALLER_WORKDIR}/${IMAGE_NAME}.img \
     bs=440 conv=notrunc count=1 
 
   xz -c ${INSTALLER_WORKDIR}/${IMAGE_NAME}.img > ${INSTALLER_DEPLOY_IMAGE}
