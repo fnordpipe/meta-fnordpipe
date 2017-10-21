@@ -2,6 +2,8 @@ inherit deploy
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/syslinux:"
 
+PROVIDES += "virtual/bootloader"
+
 SRC_URI += " \
 	file://syslinux.cfg \
 	"
@@ -16,6 +18,7 @@ do_deploy() {
   install -m 644 ${B}/bios/com32/mboot/mboot.c32 ${DEPLOYDIR}/syslinux-${PV}/mboot.c32
 
   install -m 644 ${WORKDIR}/syslinux.cfg ${DEPLOYDIR}/syslinux-${PV}/syslinux.cfg
+  ln -sf syslinux-${PV} ${DEPLOYDIR}/syslinux
 }
 
 addtask deploy after do_populate_sysroot do_packagedata

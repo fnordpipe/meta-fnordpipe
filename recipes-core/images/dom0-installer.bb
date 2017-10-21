@@ -1,6 +1,9 @@
 SUMMARY = "xen dom0 installer"
 LICENSE = "MIT"
 
+IMAGE_CLASSES += "image_types_installer"
+IMAGE_FSTYPES += " installer"
+
 IMAGE_FEATURES += " \
   read-only-rootfs \
   "
