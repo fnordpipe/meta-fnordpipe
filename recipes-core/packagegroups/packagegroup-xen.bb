@@ -7,4 +7,5 @@ RDEPENDS_${PN} = " \
   xen-xencommons \
   xen-xenstored \
   xen-xendomains \
+  bridge-utils \
   "

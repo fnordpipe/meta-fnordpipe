@@ -22,8 +22,8 @@ mount -t aufs \
   none /root \
   -o br=/usr/local/system/root:/root
 mount -t aufs \
-  none /var/lib/dropbear \
-  -o br=/usr/local/system/dropbear:/var/lib/dropbear
+  none /etc/dropbear \
+  -o br=/usr/local/system/dropbear:/etc/dropbear
 mount -t aufs \
   none /etc/xen \
   -o br=/usr/local/system/xen:/etc/xen

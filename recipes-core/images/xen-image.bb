@@ -13,6 +13,10 @@ inherit core-image
 
 require fnordpipe.inc
 
+IMAGE_EXTRA_RDEPENDS += " \
+  kernel-module-bridge \
+  "
+
 IMAGE_INSTALL += " \
   packagegroup-core-ssh-dropbear \
   packagegroup-diskutils \
