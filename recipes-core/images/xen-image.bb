@@ -11,6 +11,8 @@ IMAGE_FEATURES += " \
 
 inherit core-image
 
+require fnordpipe.inc
+
 IMAGE_INSTALL += " \
   packagegroup-core-ssh-dropbear \
   packagegroup-diskutils \
