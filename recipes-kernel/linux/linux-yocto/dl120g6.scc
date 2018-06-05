@@ -1,4 +1,0 @@
-define KFEATURE_DESCRIPTION "HP DL120 G6 hw support"
-define KFEATURE_COMPATIBILITY arch
-
-kconf hardware dl120g6.cfg
